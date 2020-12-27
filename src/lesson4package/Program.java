@@ -1,5 +1,7 @@
 package lesson4package;
 
+import lesson8package.GameWindow;
+
 import java.util.Scanner;
 
 /*Доброго дня суток! Крести-Нолики с простейшим ИИ.
@@ -271,15 +273,16 @@ public class Program {
     }
 
     public static void main (String[]args){
-        System.out.println("Крестики-нолики");
+        //System.out.println("Крестики-нолики");
         fillPlayerField();
-        fieldToPrint();
-        for(int x = 1; !isWon; x++) {
-            if (x % 2 == 1) playerMove();
-            else computerMove();
-            fieldToPrint();
-            haveWeWinner();
-        }
+        GameWindow gameWindow = new GameWindow();
+//        fieldToPrint();
+//        for(int x = 1; !isWon; x++) {
+//            if (x % 2 == 1) playerMove();
+//            else computerMove();
+//            fieldToPrint();
+//            haveWeWinner();
+//        }
     }
 
 }
