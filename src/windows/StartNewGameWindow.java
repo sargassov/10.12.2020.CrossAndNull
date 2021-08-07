@@ -30,6 +30,7 @@ public class StartNewGameWindow extends JFrame {
     private JSlider slWinLength;
 
     public StartNewGameWindow(GameWindow gameWindow)  {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.gameWindow = gameWindow;
         setSize(WIN_WIDTH, WIN_HEIGHT);
         Rectangle gameWindowBounds = gameWindow.getBounds();

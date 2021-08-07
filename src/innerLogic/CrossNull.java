@@ -18,7 +18,6 @@ public class CrossNull {
     private static int AI_DOT = 2;
     private static int EMPTY_DOT = 0;
     // обявляется классов ввода и случайного числа для игры
-    static Scanner scr = new Scanner(System.in);
     static Random rnd = new Random();
 
 
@@ -120,6 +119,17 @@ public class CrossNull {
         return true;
     }
 
+    private boolean fullDesk(){
+
+        for (int i = 0; i < SIZE_X; i++) {
+            for (int j = 0; j < SIZE_Y; j++) {
+                if(field[i][j] == 0) return false;
+            }
+        }
+
+        return true;
+    }
+
     //запись хода игрока на поле
     private void dotField(int y, int x, int dot) {
         field[y][x] = dot;
@@ -128,6 +138,11 @@ public class CrossNull {
     //Ход компьютера
     public void AiMove() {
         int x, y;
+
+        if(fullDesk()){
+            Map.setCountOfWinner(3);
+            map.checkWin();
+        }
         //блокировка ходов человека
         for (int v = 0; v < SIZE_Y; v++) {
             for (int h = 0; h < SIZE_X; h++) {
