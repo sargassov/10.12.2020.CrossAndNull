@@ -34,6 +34,7 @@ public class Map extends JPanel {
 
     Map(GameWindow gameWindow) {
         this.gameWindow = gameWindow;
+        isWin = false;
         CURRENT_DOT = 1;
         setBackground(Color.ORANGE);
         addMouseListener(new MouseAdapter() {
@@ -75,7 +76,8 @@ public class Map extends JPanel {
             countOfWinner = 2;
             isWin = true;
         }
-        if(countOfWinner == 3){/////////////////////////////////////////////////
+        if(crossNull.fullField()){
+            countOfWinner = 3;
             isWin = true;
             //add(new paintComponent());
         }
@@ -128,7 +130,9 @@ public class Map extends JPanel {
             String winner = "";
             if(countOfWinner == 1) winner = playerWinner;
             if(countOfWinner == 2) winner = compWinner;
-            winner += " is won!!!";
+            if(countOfWinner == 3) winner = deuce;
+
+            if(countOfWinner != 3) winner += " is won!!!";
 
             Font font = new Font("Times New Roman", Font.BOLD, 58);
             g2.setFont(font);
@@ -150,7 +154,7 @@ public class Map extends JPanel {
 
     void startNewGame(int mode, int fieldSizeX, int fieldSizeY, int winLen) {
         field = new int[fieldSizeY][fieldSizeX];
-        GameWindow.getBottomPanel().setVisible(true);
+        GameWindow.getBottomPanel().setVisible(false);
         crossNull = new CrossNull(this, fieldSizeX, fieldSizeY, winLen);
         System.out.println(mode + " " + fieldSizeX + " " + fieldSizeY + " " + winLen);
         this.fieldSizeX = fieldSizeX;

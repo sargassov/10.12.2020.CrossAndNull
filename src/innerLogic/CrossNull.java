@@ -235,6 +235,16 @@ public class CrossNull {
         return false;
     }
 
+        //проверка на ничью (все  ячейки поля заполнены ходами)
+    public boolean fullField() {
+        for (int i = 0; i < SIZE_Y; i++) {
+            for (int j = 0; j < SIZE_X; j++) {
+                if (field[i][j] == EMPTY_DOT) return false;
+            }
+        }
+        return true;
+    }
+
     public int getAiDot() {
         return AI_DOT;
     }
@@ -243,63 +253,5 @@ public class CrossNull {
         return HUMAN_DOT;
     }
 
-    //
-//
-//
 
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//    /
-//
-//    //проверка на ничью (все  ячейки поля заполнены ходами)
-//    private static boolean fullField() {
-//        for (int i = 0; i < SIZE_Y; i++) {
-//            for (int j = 0; j < SIZE_X; j++) {
-//                if (fieldg[i][j] == EMPTY_DOT) return false;
-//            }
-//        }
-//        System.out.println("Игра закончилась в ничью");
-//        return true;
-//    }
-//
-//
-//
-//    //проверка заполнения всей линии по диагонале вверх
-//
-//
-//
-//
-//
-//
-//
-//    public static void main(String[] args) {
-//        emtpyField();
-//        printField();
-//        do {
-//            playerMove();
-//            System.out.println("Ваш ход на поле");
-//            printField();
-//            if (checkWin(player_DOT)) {
-//                System.out.println("Вы выиграли");
-//                break;
-//            } else if (fullField()) break;
-//            AiMove();
-//            System.out.println("Ход Компа на поле");
-//            printField();
-//            if (checkWin(Ai_DOT)) {
-//                System.out.println("Выиграли Комп");
-//                break;
-//            } else if (fullField()) break;
-//        } while (true);
-//        System.out.println("!Конец игры!");
-//    }}
 }

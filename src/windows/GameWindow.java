@@ -67,23 +67,5 @@ public class GameWindow extends JFrame {
         return bottomPanel;
     }
 
-    public class GWComponent extends JComponent{
-
-        String winnername;
-
-        public GWComponent(String winnerName){
-            this.winnername = winnerName;
-        }
-
-        @Override
-        protected void printComponent(Graphics g) {
-            super.printComponent(g);
-            Font f = new Font("Impact",Font.BOLD,35);
-            g.setColor(Color.BLACK);
-            g.drawString(winnername + " won!!", 100, WIN_HEIGHT / 2);
-            bottomPanel.setVisible(true);
-        }
-    }
-
 
 }
